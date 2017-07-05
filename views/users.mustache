@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../main.css" rel="stylesheet">
+    </head>
+    <body class="users">
+        <div class="profile_side">
+            {{#data}}
+            <div class="user">
+                <img src="{{avatar}}" class="user_image">
+            </div>
+            <div class="user_details">
+                <h1>{{name}}</h1>
+                <p> {{#address}}
+                        {{#city}}
+                            {{.}}, {{address.country}} | 
+                                {{#job}}
+                                    {{.}}
+                                {{/job}}
+                                {{^job}}
+                                    Available for hire
+                                {{/job}}
+                        {{/city}}
+                        {{^city}}
+                            {{address.country}} | 
+                            {{#job}}
+                                {{.}}
+                            {{/job}}
+                            {{^job}}
+                                Available for hire
+                            {{/job}}
+                        {{/city}}
+                    {{/address}}
+                </p>
+                <p>{{email}} | {{phone}}</p>
+            </div>
+            <div class="bottom">
+                {{#university}}
+                <h4>Education</h4>
+                {{/university}}
+                <h4>Skills</h4>
+            </div>
+            <section class="ed_skills">
+                    <p>
+                    {{#university}}
+                        {{.}}
+                    {{/university}}
+                    {{#skills}}
+                        <ul>
+                            <li>{{.}}</li>
+                        </ul>
+                    {{/skills}}
+                    </p>
+                </section>
+            {{/data}}
+        </div>
+    </body>
+</html>
+

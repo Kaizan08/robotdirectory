@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="nav">
+            <a href="/users">Directory</a><br>
+            <a href="/unemployed">Looking for work</a><br>
+            <a href="/employed">Currently Employed</a><br>
+        </div>
+        <div class="profile_section">
+            {{#data}}
+            <div class="profile">
+                <img src={{avatar}} class="image">
+                <h3><a href="./users/{{_id}}">{{name}}</a></h3>
+                {{#job}}
+                    <p>{{job}}</p>
+                {{/job}}
+                {{^job}}
+                    <p>Available for hire</p>
+                {{/job}}
+            </div>
+            {{/data}}
+        </div>
+    </body>
+</html>
